@@ -18,10 +18,18 @@ function onReady() {
 
     //events
     // event handler
-    $('#clickableButton').on('click', function() {
+    $('#addPersonButton').on('click', function() {
         // console.log($('#nameInput').val());
+       let name = $('#nameInput').val();
+       $('#newNames').append('<li>' + name + ' ' + '<button class ="deleteButton">Delete</button>' + '</li>');
         console.log($('#nameInput').val());
+        $('#nameInput').val('');
 
+    });
+
+    $('#newNames').on('click', '.deleteButton', function() {
+        console.log('Delete Button was clicked.');
+        $(this).parent().remove();
     });
 
     $('#secondButton').on('click', function() {
